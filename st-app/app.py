@@ -21,42 +21,20 @@ from IPython.display import display
 
 # TODO: Link in read .toml config & secrets
 
-DATA_INFO = 'Supplied by Client (YoungM)'
-AUTHOR_INFO = 'Aaron Chin @ DataBooth.com.au'
-APP_NAME = "iFit Data Conversion app"
+DATA_INFO = 'Using API for ASX data'
+AUTHOR_INFO = 'Michaek @ DataBooth.com.au'
+APP_NAME = "LK Share Price lookup app"
 CACHED_DATA = 'TODO: Data cache file'
-CLIENT_NAME = 'Mick Young'
+CLIENT_NAME = 'Lea Kuan Tan'
 
 st.set_page_config(page_title=APP_NAME, layout='wide')
 
 AVATAR_URL = "https://www.w3schools.com/howto/img_avatar.png"
-IFIT_BRAND_URL = "https://images.contentstack.io/v3/assets/blt1d89a78b502b83f3/blt000cfbfbc534f253/615468f7c3934450a14e3233/img_bikes_hero_dsk.jpg?q=90"
+BRAND_URL = "https://images.contentstack.io/v3/assets/blt1d89a78b502b83f3/blt000cfbfbc534f253/615468f7c3934450a14e3233/img_bikes_hero_dsk.jpg?q=90"
 #IMAGE_PATH = 'st-app/resources'
 #IMAGE_PATH = Path.cwd().resolve()/IMAGE_PATH
 
 #def ST_APP_CONFIG_TOML = Path().cwd().parent / \"app_secrets.toml\"
-
-def convert_csv_row_to_xml(row):
-    return """<Time>%s</Time>
-    <Miles>%s</Miles>
-    <MPH>%s</MPH>
-    <Watts>%s</Watts>
-    <HR>%s</HR>
-    <RPM>%s</RPM>
-    <Resistance>%s</Resistance>
-    <Relative Resistance>%s</Relative Resistance>
-    <Incline>%s</Incline>""" % (row.Time, row.Miles, row.MPH, row.Watts, row.HR, row.RPM, row.Resistance, row.RelativeResistance, row.Incline)
-
-def convert_csv_row_to_xml(row):
-    return """<Time>%s</Time>
-    <Miles>%s</Miles>
-    <MPH>%s</MPH>
-    <Watts>%s</Watts>
-    <HR>%s</HR>
-    <RPM>%s</RPM>
-    <Resistance>%s</Resistance>
-    <Relative Resistance>%s</Relative Resistance>
-    <Incline>%s</Incline>""" % (row.Time, row.Miles, row.MPH, row.Watts, row.HR, row.RPM, row.Resistance, row.RelativeResistance, row.Incline)
 
 class SideBar:
     app_name = APP_NAME
@@ -79,8 +57,8 @@ def app_sidebar(APP_NAME):
 
     #with col1:
         #st.write(IMAGE_URL)
-        #mage1 = Image.open(IMAGE_PATH/'AppleWatchExercise.jpeg').resize((144, 144))  # NOTE: resize done here
-    st.sidebar.image(image=IFIT_BRAND_URL, use_column_width=True, output_format='PNG')
+        #image1 = Image.open(IMAGE_PATH/'AppleWatchExercise.jpeg').resize((144, 144))  # NOTE: resize done here
+    st.sidebar.image(image=BRAND_URL, use_column_width=True, output_format='PNG')
     #with col2:
         #st.markdown("## TODO")
         #image2 = Image.open(IMAGE_PATH/'HealthFitLogo.png')
@@ -101,22 +79,22 @@ def app_mainscreen(APP_NAME, sb):
     st.header(APP_NAME + " // " + CLIENT_NAME)
     #st.write("Today's date: " + str(sb.today_date))
     #st.file_uploader
-    csv_file_name = st.file_uploader("Name of CSV data file to convert?", type=['csv'])
+    #csv_file_name = st.file_uploader("Name of CSV data file to convert?", type=['csv'])
     
     # st.write(csv_file_name)
     
     # import data
     data_df = pd.DataFrame()
 
-    if csv_file_name is not None:
-        data_df = pd.read_csv(csv_file_name, skiprows=2)
+    #if csv_file_name is not None:
+    #    data_df = pd.read_csv(csv_file_name, skiprows=2)
 
     
-    data_df.rename(columns={"Relative Resistance": "RelativeResistance"}, inplace=True)
+    #data_df.rename(columns={"Relative Resistance": "RelativeResistance"}, inplace=True)
 
-    tcx_file_name = st.file_uploader("Name of TCX data file you would like to merge", type = ['tcx'])
+    #tcx_file_name = st.file_uploader("Name of TCX data file you would like to merge", type = ['tcx'])
 
-    new_tcx = ''.join(data_df.apply(convert_csv_row_to_xml, axis=1))
+    #new_tcx = ''.join(data_df.apply(convert_csv_row_to_xml, axis=1))
     
     #data_df = load_cached_walking_data()
     #sb.datasize = data_df.memory_usage(deep=True).sum() / 1024 / 1024
@@ -128,26 +106,19 @@ def app_mainscreen(APP_NAME, sb):
         #for line in new_tcx:
             #tcxwrite.write(line)
             
-    show_raw_csv = st.checkbox("Show raw CSV data")
-    if show_raw_csv:
-        st.write(data_df)
-        #st.write(new_tcx)
-        #st.write(TCXFILE)
+    #show_raw_csv = st.checkbox("Show raw CSV data")
+    #if show_raw_csv:
+    #    st.write(data_df)
+    #    #st.write(new_tcx)
+    #    #st.write(TCXFILE)
 
-    show_raw_xml = st.checkbox("Show raw XML data")
-    if show_raw_xml:
-        st.write(new_tcx)
+    #show_raw_xml = st.checkbox("Show raw XML data")
+    #if show_raw_xml:
+    #    st.write(new_tcx)
 
     # return data_df
-    return csv_file_name
+    return None
 
 sb = app_sidebar(APP_NAME)
 
 app_mainscreen(APP_NAME, sb)
-
-# TODO: display XML bug?
-# TODO: join tcx to csv on date/time?
-# TODO: define testing
-# TODO: do testing
-# TODO: complete documentation
-# TODO: refactor and retest
