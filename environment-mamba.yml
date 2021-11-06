@@ -1,10 +1,10 @@
-name: client-youngm-ifit
+name: personal-tan-lea-kuan
 channels:
   - conda-forge
   - defaults
   - fastai
 dependencies:
-  - python >=3.8,<3.9
+  - python>=3.8,<3.9
   - pip
   # Essentials
   - deon    # Data ethics checklist
@@ -15,7 +15,7 @@ dependencies:
   - jupyterlab 
   - ipykernel
   # Streamlit and friends
-  - streamlit
+  - streamlit>=1.0
 # - streamlit-folium
 # - pip:
 #   - TODO
