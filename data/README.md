@@ -1,22 +1,24 @@
 # Data Summary
 
-Sample data provided by client (via email)
+No sample data.
 
 ## Format
 
-* TCX (flavour of XML)
-* CSV
+N/A.
 
 ## Size 
 
-151KB compressed
+N/A.
 
+## API Details
+
+TODO (@mjboothaus)
 ## Governance
 
+TODO (@mjboothaus)
 ### Sensitivity
 
-Confirmed with client no-explicit-PII data provided.
-
+N/A.
 ### Data Sharing Agreement (DSA)
 
 Note that no explicit data-sharing agreement is currently active (nor required).
