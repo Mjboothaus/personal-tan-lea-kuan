@@ -1,4 +1,3 @@
-name: personal-tan-lea-kuan
 channels:
   - conda-forge
   - defaults
@@ -7,15 +6,13 @@ dependencies:
   - python>=3.8,<3.9
   - pip
   # Essentials
-  - deon    # Data ethics checklist
+  - pandas
   - numpy
   - scipy
-  - pandas
   # Jupyter - Lab, Notebook, ipykernel
   - jupyterlab 
   - ipykernel
   # Streamlit and friends
   - streamlit>=1.0
-# - streamlit-folium
 # - pip:
 #   - TODO
