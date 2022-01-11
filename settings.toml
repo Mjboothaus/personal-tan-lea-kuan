@@ -1,4 +1,14 @@
-[app]
-name = "LKT Market Watch"
-version = 0.1
-author = "Emmeline G. Booth"
+[APP]
+DATASOURCE = 'Yahoo Query API'
+AUTHOR = '[Emmeline @ DataBooth.com.au](https://www.databooth.com.au)'
+NAME = 'LKT Market Watch' 
+LAYOUT = 'wide'
+VERSION = "0.1"
+
+[S3] # Cloud Object Storage: https://console.scaleway.com
+ACCESS_KEY_ID = 'SCW5MSNHMS37P6Q0ZZV2'   # Credentials
+SECRET_ACCESS_TOML = '.secrets.toml'
+STORAGE_BUCKET_NAME = 'personal-tan-lea-kuan'
+DEFAULT_ACL = 'public-read'
+REGION_NAME = 'fr-par'
+ENDPOINT_URL = 'https://s3.fr-par.scw.cloud'
