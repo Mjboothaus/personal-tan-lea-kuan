@@ -1,11 +1,9 @@
-[APP]
+[default]
 DATASOURCE = 'Yahoo Query API'
 AUTHOR = '[Emmeline @ DataBooth.com.au](https://www.databooth.com.au)'
 NAME = 'LKT Market Watch' 
 LAYOUT = 'wide'
 VERSION = "0.1"
-
-[DEFAULT_CODES]
 CODE_1 = "ANZ"
 LABEL_1 = "ANZ Bank"
 CODE_2 = "CBA"
