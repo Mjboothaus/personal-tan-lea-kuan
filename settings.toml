@@ -5,6 +5,18 @@ NAME = 'LKT Market Watch'
 LAYOUT = 'wide'
 VERSION = "0.1"
 
+[DEFAULT_CODES]
+CODE_1 = "ANZ"
+LABEL_1 = "ANZ Bank"
+CODE_2 = "CBA"
+LABEL_2 = "Commonwealth Bank"
+CODE_3 = "NAB"
+LABEL_3 = "National Aust Bank"
+CODE_4 = "WBC"
+LABEL_4 = "Westpac Bank"
+CODE_5 = "MGL"
+LABEL_5 = "Macquarie Bank"
+
 [S3] # Cloud Object Storage: https://console.scaleway.com
 ACCESS_KEY_ID = 'SCW5MSNHMS37P6Q0ZZV2'   # Credentials
 SECRET_ACCESS_TOML = '.secrets.toml'
