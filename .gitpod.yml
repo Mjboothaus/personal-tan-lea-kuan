@@ -32,7 +32,7 @@ github:
 # Note: mamba is a drop-in replacement for conda which does faster package resolution
 
 tasks:
-  - name: InstallActivateDboothConda
+  - name: setupconda
   - before: |
       curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh \
         --output /workspace/Mambaforge3-Linux-x86_64.sh
@@ -41,11 +41,13 @@ tasks:
       rm /workspace/Mambaforge3-Linux-x86_64.sh
       /workspace/miniforge3/bin/conda init bash
       source ~/.bashrc
-      mamba env create --file environment-mamba.yml -n base
+      # conda deactivate
+      conda config --set report_errors false
+      conda env update --name=base --file=environment-mamba.yml 
+      source activate base
       python -m ipykernel install --user --name=base
       conda -V && python -V
 
-## Currently 'dbooth' chooses to be a python 3.8 environment
 
 # NOTE: Plan for now is just to work in the conda base environment - could use a one or two other
 #       conda envs if warranted -- this disposable Gitpod.io infrastructure sort of takes care
@@ -62,4 +64,15 @@ tasks:
 
 vscode:
   extensions:
+    - "gitpod.gitpod-desktop"
     - "eamodio.gitlens"
+    - "ms-toolsai.jupyter"
+    - "ms-toolsai.jupyter-keymap"
+    - "ms-vscode-remote.remote-ssh"
+    - "ms-vscode-remote.remote-ssh-edit"
+    - "github.vscode-pull-request-github"
+    - "ms-python.python"
+    - "ms-python.vscode-pylance"
+    - "redhat.vscode-yaml"
+    - "dotjoshjohnson.xml"
+#    - "ms-azuretools.vscode-docker"
