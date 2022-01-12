@@ -6,6 +6,7 @@ dependencies:
   - python>=3.8,<3.9
   - pip
   # Essentials
+  - boto3
   - dynaconf
   - pandas
   - numpy
